@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ClothMerchStoreApp.Models.Address>
+@{
+    ViewBag.Title = "My Addresses";
+}
+
+<h2>My Addresses</h2>
+
+<a href="@Url.Action("AddAddress", "Users")" class="btn btn-primary">Add New Address</a>
+
+<table class="table table-bordered mt-3">
+    <tr>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZipCode</th>
+        <th>Country</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Street</td>
+            <td>@item.City</td>
+            <td>@item.State</td>
+            <td>@item.ZipCode</td>
+            <td>@item.Country</td>
+            <td>
+                <a href="@Url.Action("DeleteAddress", "Users", new { id = item.AddressID })"
+                   class="btn btn-danger btn-sm"
+                   onclick="return confirm('Are you sure you want to delete this address?')">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

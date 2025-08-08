@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a5e2da59c33f410fa450ac739df693f7" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Admin" Width="1.5" PointX="7.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Brand" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Cart" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Category" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.OrderItem" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Order" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Payment" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Product" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Review" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.ShippingAddress" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.User" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.WishList" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Products__BrandI__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Cart__ProductID__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Cart__UserID__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Products__Catego__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__OrderItem__Order__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__OrderItem__Produ__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Orders__UserID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Payments__OrderI__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Reviews__Product__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__WishList__Produc__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Reviews__UserID__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__ShippingA__UserI__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__WishList__UserID__5CD6CB2B" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ClothMerchStoreDBModel.Address" Width="1.5" PointX="3" PointY="15.25" />
+        <AssociationConnector Association="ClothMerchStoreDBModel.FK__Addresses__UserI__6FE99F9F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

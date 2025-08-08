@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ClothMerchStoreApp.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2 class="mt-4 mb-4 text-center">Explore Our Products</h2>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm border-0">
+                    <img src="@Url.Content(item.ImageURL ?? "/Content/Images/Products/default.png")"
+                         class="card-img-top"
+                         alt="@item.Name"
+                         style="height: 220px; object-fit: cover;" />
+
+
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="text-muted mb-1">@item.Description</p>
+                        <p class="fw-bold text-dark">₹@item.Price</p>
+                        <p class="text-secondary mb-1">
+                            Brand: @(item.Brand != null ? item.Brand.BrandName : "N/A")
+                        </p>
+                        <p class="text-secondary">
+                            Category: @(item.Category != null ? item.Category.CategoryName : "N/A")
+                        </p>
+                    </div>
+
+                    <div class="card-footer bg-white border-0 d-flex justify-content-between">
+                        <a href="@Url.Action("AddToCart", "Cart", new { productId = item.ProductID })" class="btn btn-sm btn-primary">
+                            🛒 Add to Cart
+                        </a>
+                        <a href="@Url.Action("Add", "Wishlist", new { productId = item.ProductID })" class="btn btn-sm btn-outline-danger">
+                            ❤️ Wishlist
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

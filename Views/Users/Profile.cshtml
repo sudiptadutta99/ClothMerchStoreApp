@@ -1,0 +1,15 @@
+﻿@model ClothMerchStoreApp.Models.User
+@{
+    ViewBag.Title = "My Profile";
+}
+
+<h2>My Profile</h2>
+
+<div>
+    <p><strong>Name:</strong> @Model.FullName</p>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Phone:</strong> @Model.Phone</p>
+</div>
+
+<a href="@Url.Action("EditProfile", "Users")" class="btn btn-primary">Edit Profile</a>
+<a href="@Url.Action("Addresses", "Users")" class="btn btn-secondary">Manage Addresses</a>

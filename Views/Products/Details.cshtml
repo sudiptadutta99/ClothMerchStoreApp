@@ -1,0 +1,104 @@
+﻿@model ClothMerchStoreApp.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<h4 class="mt-5">Customer Reviews</h4>
+
+@foreach (var review in ViewBag.Reviews)
+{
+    <div class="border rounded p-3 mb-2">
+        <strong>Rating:</strong> @review.Rating ⭐<br />
+        <strong>Review:</strong> @review.ReviewText <br />
+        <small class="text-muted">Posted on: @review.CreatedAt.ToString("dd MMM yyyy")</small>
+    </div>
+}
+
+
+@if (Session["UserID"] != null)
+{
+    <h5 class="mt-4">Leave a Review</h5>
+    @using (Html.BeginForm("Add", "ProductReview", FormMethod.Post))
+    {
+        @Html.Hidden("ProductID", Model.ProductID)
+        <div class="mb-2">
+            <label>Rating (1 to 5):</label>
+            <input type="number" name="Rating" class="form-control" min="1" max="5" required />
+        </div>
+        <div class="mb-2">
+            <label>Review:</label>
+            <textarea name="ReviewText" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit Review</button>
+    }
+}

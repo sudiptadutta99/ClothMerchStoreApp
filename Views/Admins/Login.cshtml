@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Admin Login";
+}
+
+<h2>Admin Login</h2>
+
+@using (Html.BeginForm())
+{
+    <label>Username</label>
+    <input type="text" name="username" required />
+
+    <label>Password</label>
+    <input type="password" name="password" required />
+
+    <br />
+    <br />
+    <input type="submit" value="Login" class="btn btn-primary" />
+    <p style="color:red">@ViewBag.Message</p>
+}

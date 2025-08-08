@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>Welcome, @Session["AdminUser"]!</h2>
+
+<ul>
+    <li>Total Products: @ViewBag.TotalProducts</li>
+    <li>Total Orders: @ViewBag.TotalOrders</li>
+    <li>Total Users: @ViewBag.TotalUsers</li>
+</ul>
+
+<a class="btn btn-info" href="@Url.Action("Orders", "Admins")">View All Orders</a> |
+<a class="btn btn-warning" href="@Url.Action("Index", "Products")">Manage Products</a> |
+<a class="btn btn-danger" href="@Url.Action("Logout", "Admins")">Logout</a>
