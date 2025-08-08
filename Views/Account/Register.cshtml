@@ -1,22 +1,41 @@
 ﻿@model ClothMerchStoreApp.Models.User
-
-<h2>Register</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.FullName)
-    @Html.TextBoxFor(m => m.FullName)
-
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
-
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
-
-    @Html.LabelFor(m => m.Phone)
-    @Html.TextBoxFor(m => m.Phone)
-
-    <br />
-    <input type="submit" value="Register" />
-    <p>@ViewBag.Message</p>
+@{
+    ViewBag.Title = "Register";
 }
+
+<div class="container mt-5" style="max-width: 500px;">
+    <h2 class="text-center mb-4">Create an Account</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "card p-4 shadow-sm" }))
+    {
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.FullName, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Enter full name", required = "required" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email", placeholder = "Enter email address", required = "required" })
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter password", required = "required" })
+        </div>
+
+        <div class="form-group mb-4">
+            @Html.LabelFor(m => m.Phone, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", placeholder = "Enter phone number" })
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Register</button>
+
+        @Html.Raw(string.IsNullOrEmpty(ViewBag.Message)
+            ? ""
+            : $"<div class='alert alert-info mt-3'>{ViewBag.Message}</div>")
+
+        <div class="text-center mt-3">
+            <small>Already have an account? <a href="@Url.Action("Login", "Account")">Login here</a></small>
+        </div>
+    }
+</div>

@@ -4,37 +4,38 @@
     ViewBag.Title = "Products";
 }
 
-<h2 class="mt-4 mb-4 text-center">Explore Our Products</h2>
+<h2 class="mt-4 mb-4 text-center fw-bold">🛍 Explore Our Products</h2>
 
 <div class="container">
-    <div class="row">
+    <div class="row g-4">
         @foreach (var item in Model)
         {
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card h-100 shadow-sm border-0">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card h-100 shadow-sm border-0 product-card">
                     <img src="@Url.Content(item.ImageURL ?? "/Content/Images/Products/default.png")"
                          class="card-img-top"
                          alt="@item.Name"
-                         style="height: 220px; object-fit: cover;" />
-
+                         style="height: 220px; object-fit: cover; border-top-left-radius: .5rem; border-top-right-radius: .5rem;" />
 
                     <div class="card-body">
-                        <h5 class="card-title">@item.Name</h5>
-                        <p class="text-muted mb-1">@item.Description</p>
-                        <p class="fw-bold text-dark">₹@item.Price</p>
-                        <p class="text-secondary mb-1">
+                        <h5 class="card-title fw-semibold text-truncate" title="@item.Name">@item.Name</h5>
+                        <p class="text-muted small mb-2 text-truncate">@item.Description</p>
+                        <p class="fw-bold fs-5 text-success mb-1">₹@item.Price</p>
+                        <p class="text-secondary small mb-0">
                             Brand: @(item.Brand != null ? item.Brand.BrandName : "N/A")
                         </p>
-                        <p class="text-secondary">
+                        <p class="text-secondary small">
                             Category: @(item.Category != null ? item.Category.CategoryName : "N/A")
                         </p>
                     </div>
 
                     <div class="card-footer bg-white border-0 d-flex justify-content-between">
-                        <a href="@Url.Action("AddToCart", "Cart", new { productId = item.ProductID })" class="btn btn-sm btn-primary">
+                        <a href="@Url.Action("AddToCart", "Cart", new { productId = item.ProductID })"
+                           class="btn btn-sm btn-primary px-3">
                             🛒 Add to Cart
                         </a>
-                        <a href="@Url.Action("Add", "Wishlist", new { productId = item.ProductID })" class="btn btn-sm btn-outline-danger">
+                        <a href="@Url.Action("Add", "Wishlist", new { productId = item.ProductID })"
+                           class="btn btn-sm btn-outline-danger px-3">
                             ❤️ Wishlist
                         </a>
                     </div>
@@ -43,3 +44,16 @@
         }
     </div>
 </div>
+
+<!-- Custom Styling -->
+<style>
+    .product-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-radius: .5rem;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+</style>
